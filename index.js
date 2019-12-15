@@ -1,3 +1,4 @@
+//list of quotes
 const quotes = [
   {
     quote:"There is no fear for one whose mind is not filled with desires.",
