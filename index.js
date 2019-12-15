@@ -1,4 +1,6 @@
 //list of quotes
+//i need others that are not buddhas
+
 const quotes = [
   {
     quote:"There is no fear for one whose mind is not filled with desires.",
