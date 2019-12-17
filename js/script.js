@@ -7,7 +7,6 @@ project 1 - A Random Quote Generator
   // Check the "Project Resources" section of the project instructions
   // Reach out in your Slack community - https://treehouse-fsjs-102.slack.com/app_redirect?channel=chit-chat
 
-//`quotes` array 
  const quotes = [
   {
     quote:"Talk is cheap. Show me the code.",
@@ -74,23 +73,38 @@ project 1 - A Random Quote Generator
   },
 ]
 
-console.log(quotes)
-
-const myArray = [1,2,2,4,5];
-
-
-
 const objValidator = (quoteObj) => {
-  return quoteObj.hasOwnProperty('quote')  
+  return quoteObj.hasOwnProperty('quote')
 }
+
 const arrValidator = quotes.every(objValidator)
-console.log(arrValidator)
+// console.log(arrValidator)
 
-// console.log(reducer);
 
-//remember to hide history and other stuff from the global scope
-const history = {}
-const getRandomQuote = () => {}
+
+
+
+
+
+const getRandomQuote = (quotes) => {
+  const randomIndex = Math.floor(Math.random() * Math.floor(quotes.length))
+  return quotes[randomIndex]
+
+}
+console.log(getRandomQuote(quotes))
+
+
+
+// Array.prototype.randomPop = function(){
+// const randomIndex = (arrayLength) => Math.floor(Math.random() * Math.floor(arrayLength))
+//   this.splice(randomIndex(this.length), 1)
+//   return this
+// }
+
+// const quotesIndexRange = myArray.map((element, i) => i)
+
+
+
 
 
 
@@ -103,4 +117,4 @@ const getRandomQuote = () => {}
  * DO NOT CHANGE THE CODE BELOW!!
 ***/
 
-document.getElementById('load-quote').addEventListener("click", printQuote, false);
+// document.getElementById('load-quote').addEventListener("click", printQuote, false);
