@@ -1,10 +1,17 @@
-const quotes = [
-  
+/******************************************
+Treehouse FSJS Techdegree:
+project 1 - A Random Quote Generator
+******************************************/
+
+// For assistance: 
+  // Check the "Project Resources" section of the project instructions
+  // Reach out in your Slack community - https://treehouse-fsjs-102.slack.com/app_redirect?channel=chit-chat
+
+//`quotes` array 
+ const quotes = [
   {
     quote:"Talk is cheap. Show me the code.",
     source:"Linus Torvalds",
-    // citation:"",
-    // year:"",
   },
   {
     quote:"Programs must be written for people to read, and only incidentally for machines to execute.",
@@ -15,8 +22,6 @@ const quotes = [
   {
     quote:"Always code as if the guy who ends up maintaining your code will be a violent psychopath who knows where you live",
     source:"John Woods",
-    // citation:"",
-    // year:"",
   },
   {
     quote:"Programming today is a race between software engineers striving to build bigger and better idiot-proof programs, and the Universe trying to produce bigger and better idiots. So far, the Universe is winning.",
@@ -27,38 +32,27 @@ const quotes = [
   {
     quote:"Any fool can write code that a computer can understand. Good programmers write code that humans can understand.",
     source:"Martin Fowler",
-    // citation:"",
-    // year:"",
   },
   {
     quote:"Give a man a program, frustrate him for a day. Teach a man to program, frustrate him for a lifetime.",
     source:"Muhammad Waseem",
-    // citation:"",
-    // year:"",
   },
   {
     quote:"Perl – The only language that looks the same before and after RSA encryption.",
     source:"Keith Bostic",
-    // citation:"",
-    // year:"",
   },
   {
     quote:"Happiness should be a function without any parameters.",
     source:"Pranshu Midha",
-    // citation:"",
-    // year:"",
   },
   {
     quote:"Everyday life is like programming, I guess. If you love something you can put beauty into it.",
     source:"Donald Knuth",
-    // citation:"",
-    // year:"",
   },
   {
     quote:"The big optimizations come from refining the high-level design, not the individual routines.",
     source:"Steve McConnell",
     citation:"Code Complete",
-    // year:"",
   },
   {
     quote:"Also, don't forget that some of the most successful people in the world are self-taught programmers. Steve Wozniak, the founder of Apple, is a self-taught programmer. So is Margaret Hamilton, who received the Presidential Medal of Freedom for her work on NASA's Apollo Moon missions; David Karp, founder of Tumblr; Jack Dorsey, founder of Twitter; and Kevin Systrom, founder of Instagram.",
@@ -78,6 +72,35 @@ const quotes = [
     citation:"Clean Code: A Handbook of Agile Software Craftsmanship",
     year:"2007",
   },
-
-
 ]
+
+console.log(quotes)
+
+const myArray = [1,2,2,4,5];
+
+
+
+const objValidator = (quoteObj) => {
+  return quoteObj.hasOwnProperty('quote')  
+}
+const arrValidator = quotes.every(objValidator)
+console.log(arrValidator)
+
+// console.log(reducer);
+
+//remember to hide history and other stuff from the global scope
+const history = {}
+const getRandomQuote = () => {}
+
+
+
+
+// const printQuote => () => {}
+
+
+/***
+ * click event listener for the print quote button
+ * DO NOT CHANGE THE CODE BELOW!!
+***/
+
+document.getElementById('load-quote').addEventListener("click", printQuote, false);
