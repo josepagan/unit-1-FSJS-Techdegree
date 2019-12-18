@@ -86,14 +86,54 @@ const arrValidator = quotes.every(objValidator)
 
 
 
-const getRandomQuote = (quotes) => {
+const getRandomQuoteBasic = (quotes) => {
   const randomIndex = Math.floor(Math.random() * Math.floor(quotes.length))
   return quotes[randomIndex]
+}
+// console.log(getRandomQuote(quotes))
+
+
+
+
+
+const wrapper = () => {
+  const rangeArrayGen = (n) => Array.from(Array(n).keys())
+  let quotesIndexRange = rangeArrayGen(quotes.length)
+  const randomIndex = (arrayLength) => Math.floor(Math.random() * Math.floor(arrayLength))
+  const getRandomQuotePro = () => { 
+    const popped = quotesIndexRange.splice(randomIndex(quotesIndexRange.length),1) 
+    if (quotesIndexRange.length === 0) quotesIndexRange = rangeArrayGen(quotes.length) 
+    console.log("popped", popped)
+    return popped 
+   }
+
+return getRandomQuotePro
 
 }
-console.log(getRandomQuote(quotes))
 
+const getRandomQuotePro = wrapper()
 
+getRandomQuotePro()
+getRandomQuotePro()
+getRandomQuotePro()
+getRandomQuotePro()
+getRandomQuotePro()
+getRandomQuotePro()
+getRandomQuotePro()
+getRandomQuotePro()
+getRandomQuotePro()
+getRandomQuotePro()
+getRandomQuotePro()
+getRandomQuotePro()
+getRandomQuotePro()
+getRandomQuotePro()
+getRandomQuotePro()
+getRandomQuotePro()
+getRandomQuotePro()
+getRandomQuotePro()
+getRandomQuotePro()
+getRandomQuotePro()
+getRandomQuotePro()
 
 // Array.prototype.randomPop = function(){
 // const randomIndex = (arrayLength) => Math.floor(Math.random() * Math.floor(arrayLength))
