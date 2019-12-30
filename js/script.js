@@ -3,9 +3,16 @@ Treehouse FSJS Techdegree:
 project 1 - A Random Quote Generator
 ******************************************/
 
-// For assistance: 
-  // Check the "Project Resources" section of the project instructions
-  // Reach out in your Slack community - https://treehouse-fsjs-102.slack.com/app_redirect?channel=chit-chat
+
+
+const quoteElement = document.getElementById('quote-box');
+const bodyElement = document.getElementsByTagName('body');
+
+const ramdomNumber = (max) => Math.floor(Math.random() * Math.floor(max))
+const rangeArrayGen = (n) => Array.from(Array(n).keys())
+const randomPoP = (arr) => arr.splice(ramdomNumber(arr.length),1)
+
+
 
  const quotes = [
   {
@@ -73,10 +80,6 @@ project 1 - A Random Quote Generator
   },
 ]
 
-const objValidator = (quoteObj) => {
-  return quoteObj.hasOwnProperty('quote')
-}
-
 const arrValidator = quotes.every(objValidator)
 // console.log(arrValidator)
 
@@ -86,43 +89,18 @@ const getRandomQuoteBasic = (quotes) => {
   const randomIndex = Math.floor(Math.random() * Math.floor(quotes.length))
   return quotes[randomIndex]
 }
-// console.log(getRandomQuote(quotes))
+
+
 
 const wrapper = () => {
-
-  //function generates an array with numbers [0,...,n]
-  const rangeArrayGen = (n) => Array.from(Array(n).keys())
   let quotesIndexRange = rangeArrayGen(quotes.length)
-
-  //helpin function picks a random number from 0 to max
-  const randomIndex = (arrayLength) => Math.floor(Math.random() * Math.floor(arrayLength))
-
-  //this function implements the core functionality of getRandomQuote, it works like .pop() method but randomly
   const getRandomQuotePro = () => { 
-    const popped = quotesIndexRange.splice(randomIndex(quotesIndexRange.length),1) 
+    const popped2 = randomPoP(quotesIndexRange);
     if (quotesIndexRange.length === 0) quotesIndexRange = rangeArrayGen(quotes.length) 
-    return quotes[popped]; 
+    return quotes[popped2]; 
    }
-
 return getRandomQuotePro
-
 }
-
-// const elemens = ["element_one", "element_two", "element_three"]
-// const randomIndex = (arrayLength) => Math.floor(Math.random() * Math.floor(arrayLength))
-// const rangeArrayGen = (n) => Array.from(Array(n).keys())
-// const randomPop = (() => {
-//   let indexArray = rangeArrayGen(elemens.length)
-//   return function () {
-//     if (elemens.length == 0 ) indexArray = rangeArrayGen(elemens.length)
-//     return indexArray.splice(randomIndex(indexArray.length), 1)
-//   }
-// })()
-// console.log(randomPop())
-// console.log(randomPop())
-// console.log(randomPop())
-
-
 
 const getRandomQuotePro = wrapper()
 
@@ -136,18 +114,27 @@ const getRandomQuotePro = wrapper()
 // const quotesIndexRange = myArray.map((element, i) => i)
 
 
-
-
-
-
-
 const printQuote = () => {
   const currentQuote = getRandomQuotePro();
-  const htmlString = `<p class="quote"> ${currentQuote.quote} </p>
-  <p class="source"> ${currentQuote.source}
+  const htmlString = `
+  <p class="quote"> ${currentQuote.quote}</p>
+  <p class="source">
+    ${currentQuote.source}
     ${currentQuote.citation ? `<span class="citation"> ${currentQuote.citation} </span>` : ''}
     ${currentQuote.year ? `<span class="year"> ${currentQuote.year} </span>` : ''}
-  </p>`
+  </p>
+  `
+  quoteElement.innerHTML = htmlString;
+}
+
+const changeBodyBGColor = () => {
+  // to do... generate colors following this...
+
+  // #p1 {background-color: hsl(120, 100%, 50%);}   /* green */
+// #p2 {background-color: hsl(120, 100%, 75%);}   /* light green */
+// #p3 {background-color: hsl(120, 100%, 25%);}   /* dark green */
+// #p4 {background-color: hsl(120, 60%, 70%);}    /* pastel green */
+  bodyElement[0].style.backgroundColor = randomPoP(colors);
 }
 
 
