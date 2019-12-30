@@ -82,58 +82,50 @@ const arrValidator = quotes.every(objValidator)
 
 
 
-
-
-
-
 const getRandomQuoteBasic = (quotes) => {
   const randomIndex = Math.floor(Math.random() * Math.floor(quotes.length))
   return quotes[randomIndex]
 }
 // console.log(getRandomQuote(quotes))
 
-
-
-
-
 const wrapper = () => {
+
+  //function generates an array with numbers [0,...,n]
   const rangeArrayGen = (n) => Array.from(Array(n).keys())
   let quotesIndexRange = rangeArrayGen(quotes.length)
+
+  //helpin function picks a random number from 0 to max
   const randomIndex = (arrayLength) => Math.floor(Math.random() * Math.floor(arrayLength))
+
+  //this function implements the core functionality of getRandomQuote, it works like .pop() method but randomly
   const getRandomQuotePro = () => { 
     const popped = quotesIndexRange.splice(randomIndex(quotesIndexRange.length),1) 
     if (quotesIndexRange.length === 0) quotesIndexRange = rangeArrayGen(quotes.length) 
-    console.log("popped", popped)
-    return popped 
+    return quotes[popped]; 
    }
 
 return getRandomQuotePro
 
 }
 
+// const elemens = ["element_one", "element_two", "element_three"]
+// const randomIndex = (arrayLength) => Math.floor(Math.random() * Math.floor(arrayLength))
+// const rangeArrayGen = (n) => Array.from(Array(n).keys())
+// const randomPop = (() => {
+//   let indexArray = rangeArrayGen(elemens.length)
+//   return function () {
+//     if (elemens.length == 0 ) indexArray = rangeArrayGen(elemens.length)
+//     return indexArray.splice(randomIndex(indexArray.length), 1)
+//   }
+// })()
+// console.log(randomPop())
+// console.log(randomPop())
+// console.log(randomPop())
+
+
+
 const getRandomQuotePro = wrapper()
 
-getRandomQuotePro()
-getRandomQuotePro()
-getRandomQuotePro()
-getRandomQuotePro()
-getRandomQuotePro()
-getRandomQuotePro()
-getRandomQuotePro()
-getRandomQuotePro()
-getRandomQuotePro()
-getRandomQuotePro()
-getRandomQuotePro()
-getRandomQuotePro()
-getRandomQuotePro()
-getRandomQuotePro()
-getRandomQuotePro()
-getRandomQuotePro()
-getRandomQuotePro()
-getRandomQuotePro()
-getRandomQuotePro()
-getRandomQuotePro()
-getRandomQuotePro()
 
 // Array.prototype.randomPop = function(){
 // const randomIndex = (arrayLength) => Math.floor(Math.random() * Math.floor(arrayLength))
@@ -149,7 +141,14 @@ getRandomQuotePro()
 
 
 
-// const printQuote => () => {}
+const printQuote = () => {
+  const currentQuote = getRandomQuotePro();
+  const htmlString = `<p class="quote"> ${currentQuote.quote} </p>
+  <p class="source"> ${currentQuote.source}
+    ${currentQuote.citation ? `<span class="citation"> ${currentQuote.citation} </span>` : ''}
+    ${currentQuote.year ? `<span class="year"> ${currentQuote.year} </span>` : ''}
+  </p>`
+}
 
 
 /***
@@ -157,4 +156,4 @@ getRandomQuotePro()
  * DO NOT CHANGE THE CODE BELOW!!
 ***/
 
-// document.getElementById('load-quote').addEventListener("click", printQuote, false);
+document.getElementById('load-quote').addEventListener("click", printQuote, false);
