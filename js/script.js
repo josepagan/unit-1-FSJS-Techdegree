@@ -5,7 +5,8 @@ project 1 - A Random Quote Generator
 
 
 
-const quoteElement = document.getElementById('quote-box');
+const quoteBoxElement = document.querySelector('#quote-box');
+const quoteElement = document.querySelector('.quote');
 const bodyElement = document.getElementsByTagName('body');
 
 const ramdomNumber = (max) => Math.floor(Math.random() * Math.floor(max))
@@ -80,7 +81,7 @@ const randomPoP = (arr) => arr.splice(ramdomNumber(arr.length),1)
   },
 ]
 
-const arrValidator = quotes.every(objValidator)
+// const arrValidator = quotes.every(objValidator)
 // console.log(arrValidator)
 
 
@@ -105,36 +106,25 @@ return getRandomQuotePro
 const getRandomQuotePro = wrapper()
 
 
-// Array.prototype.randomPop = function(){
-// const randomIndex = (arrayLength) => Math.floor(Math.random() * Math.floor(arrayLength))
-//   this.splice(randomIndex(this.length), 1)
-//   return this
-// }
-
-// const quotesIndexRange = myArray.map((element, i) => i)
-
 
 const printQuote = () => {
+  changeBodyBGColor();
   const currentQuote = getRandomQuotePro();
   const htmlString = `
   <p class="quote"> ${currentQuote.quote}</p>
   <p class="source">
-    ${currentQuote.source}
-    ${currentQuote.citation ? `<span class="citation"> ${currentQuote.citation} </span>` : ''}
-    ${currentQuote.year ? `<span class="year"> ${currentQuote.year} </span>` : ''}
+  ${currentQuote.source}
+  ${currentQuote.citation ? `<span class="citation"> ${currentQuote.citation} </span>` : ''}
+  ${currentQuote.year ? `<span class="year"> ${currentQuote.year} </span>` : ''}
   </p>
   `
-  quoteElement.innerHTML = htmlString;
+  quoteBoxElement.innerHTML = htmlString;
 }
 
-const changeBodyBGColor = () => {
-  // to do... generate colors following this...
 
-  // #p1 {background-color: hsl(120, 100%, 50%);}   /* green */
-// #p2 {background-color: hsl(120, 100%, 75%);}   /* light green */
-// #p3 {background-color: hsl(120, 100%, 25%);}   /* dark green */
-// #p4 {background-color: hsl(120, 60%, 70%);}    /* pastel green */
-  bodyElement[0].style.backgroundColor = randomPoP(colors);
+const changeBodyBGColor = () => {
+
+  bodyElement[0].style.backgroundColor = `hsl(${ramdomNumber(360)}, 100%, 25%)`;
 }
 
 
